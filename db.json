@@ -1,0 +1,88 @@
+{
+    "dania": [
+      {
+        "id": 1,
+        "kategoria": "Burgery",
+        
+        "nazwa": "Burger Amerykański",
+        "restaurcja": "American Style",
+        "sklad": {
+            "Rodzaj mięsa": "Wołowina",
+            "Dodatki": {
+                "1": "Ser",
+                "2": "Rukola",
+                "3": "Boczek",
+                "4": "Pikle",
+                "5": "Czerwona cebula",
+                "6": "Pomidor"
+              },
+            "Sosy": {
+                "1": "Majonez",
+                "2": "Sos BBQ",
+                "3": "Ketchup"
+                
+              }
+          },
+        "cena": "24,99zł",
+        "likes": "25",
+        "dislikes": "2",
+        "comments": []
+      },
+      {
+        "id": 2,
+        "kategoria": "Burgery",
+        
+        "nazwa": "Burger Alabama",
+        "restaurcja": "American Style",
+        "sklad": {
+            "Rodzaj miesa": "Wołowina",
+            "Dodatki": {
+                "1": "Ser",
+                "2": "Rukola",
+                "3": "Boczek",
+                "4": "Pikle",
+                "5": "Czerwona cebula",
+                "6": "Pomidor"
+              },
+            "Sosy": {
+                "1": "Majonez",
+                "2": "Sos BBQ",
+                "3": "Ketchup"
+                
+              }
+          },
+        "cena": "24,99zł",
+        "likes": "25",
+        "dislikes": "2",
+        "comments": []
+      },
+      {
+        "id": 3,
+        "kategoria": "Burgery",
+        
+        "nazwa": "Burger Texas",
+        "restaurcja": "American Style",
+        "sklad": {
+            "Rodzaj miesa": "Wołowina",
+            "Dodatki": {
+                "1": "Ser",
+                "2": "Rukola",
+                "3": "Boczek",
+                "4": "Pikle",
+                "5": "Czerwona cebula",
+                "6": "Pomidor"
+              },
+            "Sosy": {
+                "1": "Majonez",
+                "2": "Sos BBQ",
+                "3": "Ketchup"
+                
+              }
+          },
+        "cena": "24,99zł",
+        "likes": "25",
+        "dislikes": "2",
+        "comments": []
+      }
+    ]
+  }

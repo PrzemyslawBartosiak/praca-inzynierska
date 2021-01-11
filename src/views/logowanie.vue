@@ -96,7 +96,8 @@ export default {
           id: dbUser.id,
           name: userData.name,
           email: userData.email,
-          partnerId: userData.partnerId || ''
+          partnerId: userData.partnerId || '',
+          dashesDbPage: userData.dishesDbPage || 1
         })
 
         this.$router.replace({ name: 'Home' })
