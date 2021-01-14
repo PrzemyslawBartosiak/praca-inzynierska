@@ -1,3 +1,6 @@
+import { firestoreAction } from 'vuexfire'
+import { db } from '../../main'
+
 const namespaced = true
 
 const state = {
@@ -45,17 +48,16 @@ const actions = {
   },
   setDishesDbPage(context, pageNumber) {
     context.commit('SET_DISHES_DB_PAGE', pageNumber)
-  }
-  // ,
-  // bindMatchesRef: firestoreAction(context => {
-  //   return context.bindFirestoreRef(
-  //     'matches',
-  //     db
-  //       .collection('users')
-  //       .doc(context.state.id)
-  //       .collection('matches')
-  //   )
-  // })
+  },
+  bindMatchesRef: firestoreAction(context => {
+    return context.bindFirestoreRef(
+      'matches',
+      db
+        .collection('users')
+        .doc(context.state.id)
+        .collection('matches')
+    )
+  })
 }
 
 const getters = {}

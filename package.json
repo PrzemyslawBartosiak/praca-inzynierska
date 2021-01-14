@@ -15,6 +15,8 @@
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vue-sweetalert2": "^4.1.1",
+    "vue-tinder": "^2.0.2",
+    "vue2-interact": "0.0.3",
     "vuefire": "^3.0.0-alpha.2",
     "vuetify": "^2.2.11",
     "vuex": "^3.4.0",

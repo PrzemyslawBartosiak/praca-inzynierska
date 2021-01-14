@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '../store/index'
 import Home from '../views/Home.vue'
-import wyszukiwarka from '../views/wyszukiwarka.vue'
 
 Vue.use(VueRouter)
 
@@ -12,12 +11,12 @@ const routes = [
     name: 'Home',
     component: Home
   },
-  {
-    path: '/wyszukiwarka',
-    name: 'wyszukiwarka',
-    component: wyszukiwarka,
-    beforeEnter: guard
-  },
+  // {
+  //   path: '/wyszukiwarka',
+  //   name: 'wyszukiwarka',
+  //   component: wyszukiwarka,
+  //   beforeEnter: guard
+  // },
   {
     path: '/rejestracja',
     name: 'rejestracja',
@@ -40,6 +39,13 @@ const routes = [
       import(
         /* webpackChunkName: "dodawanie-partnera" */ '../views/dodawaniePartnera.vue'
       )
+  },
+  {
+    path: '/dopasowania',
+    name: 'dopasowania',
+    beforeEnter: guard,
+    component: () =>
+      import(/* webpackChunkName: "dopasowania" */ '../views/dopasowania.vue')
   }
 ]
 

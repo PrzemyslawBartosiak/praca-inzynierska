@@ -2,7 +2,7 @@
   <v-container fill-height fluid>
     <v-row>
       <v-spacer></v-spacer>
-      <v-col cols="12" sm="8" md="6" lg="4">
+      <v-col cols="12" sm="10" md="6" lg="6">
         <v-card class="mx-auto">
           <v-card-title class="primary">
             <h1 class="display-1 mx-auto">Rejestracja</h1>
