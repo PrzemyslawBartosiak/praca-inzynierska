@@ -1,23 +1,36 @@
 <template>
   <v-container>
     <v-row>
-      <v-col md="6" v-for="match in matches" :key="match.id">
-        <v-card class="mx-auto">
-          <v-container>
-            <v-row>
-              <v-col md="8">
-                <v-list-item-title class="headline mb-1">
-                  {{ match.title }}
-                </v-list-item-title>
-                <p>
-                  {{ match.overview }}
-                </p>
-              </v-col>
-              <v-col md="4">
-                <v-img :src="getMovieImage(match.poster_path)"></v-img>
-              </v-col>
+      <v-col md="4" v-for="match in matches" :key="match.id">
+        <v-card max-width="500" class="d-flex align-content-start flex-wrap">
+          <v-img
+            max-height="400"
+            :src="require(`../assets/${match.adres_zdjecia}`)"
+          ></v-img>
+
+          <v-card-title>{{ match.nazwa }}</v-card-title>
+
+          <v-card-text>
+            <v-row align="center" class="mx-0">
+              <div class="grey--text ">
+                {{ match.likes }} <v-icon>mdi-thumb-up</v-icon>
+              </div>
+
+              <div class="grey--text ml-4">
+                {{ match.dislikes }} <v-icon>mdi-thumb-down</v-icon>
+              </div>
             </v-row>
-          </v-container>
+
+            <div class="my-4 subtitle-1">
+              {{ match.cena }} • {{ match.restauracja }}
+            </div>
+
+            <div>
+              {{ match.skladniki }}
+            </div>
+          </v-card-text>
+
+          <v-divider class="mx-4"></v-divider>
         </v-card>
       </v-col>
     </v-row>
@@ -26,10 +39,17 @@
 
 <script>
 export default {
-  methods: {},
+  methods: {
+    getDishImage(photoPath) {
+      return {
+        ...photoPath,
+        photo: photoPath && require(`../assets/${photoPath}`)
+      }
+    }
+  },
   computed: {
     matches() {
-      return this.$store.state.user.matches
+      return this.$store.state.user.favouriteDishes
     }
   }
 }

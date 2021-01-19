@@ -1,22 +1,43 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '../store/index'
-import Home from '../views/Home.vue'
+import wyszukiwarka from '../views/wyszukiwarka.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'stronaGlowna',
+    component: () =>
+      import(/* webpackChunkName: "stronaGlowna" */ '../views/stronaGlowna.vue')
   },
-  // {
-  //   path: '/wyszukiwarka',
-  //   name: 'wyszukiwarka',
-  //   component: wyszukiwarka,
-  //   beforeEnter: guard
-  // },
+  {
+    path: '/profil',
+    name: 'Profil',
+    component: () =>
+      import(/* webpackChunkName: "profile" */ '../views/Profil.vue'),
+    beforeEnter: guard
+  },
+
+  {
+    path: '/aktualizacjaDanych',
+    name: 'aktualizacjaDanych',
+    component: () =>
+      import(
+        /* webpackChunkName: "aktualizacjaDanych" */ '../views/aktualizacjaDanych.vue'
+      )
+  },
+
+  {
+    path: '/wyszukiwarka',
+    name: 'wyszukiwarka',
+    component: () =>
+      import(
+        /* webpackChunkName: "wyszukiwarka" */ '../views/wyszukiwarka.vue'
+      ),
+    beforeEnter: guard
+  },
   {
     path: '/rejestracja',
     name: 'rejestracja',
@@ -46,6 +67,13 @@ const routes = [
     beforeEnter: guard,
     component: () =>
       import(/* webpackChunkName: "dopasowania" */ '../views/dopasowania.vue')
+  },
+  {
+    path: '/ulubione',
+    name: 'ulubione',
+    beforeEnter: guard,
+    component: () =>
+      import(/* webpackChunkName: "ulubione" */ '../views/ulubione.vue')
   }
 ]
 

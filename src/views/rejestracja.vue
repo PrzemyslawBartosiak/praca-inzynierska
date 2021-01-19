@@ -184,22 +184,20 @@ export default {
             this.userPassword
           )
 
-        const dbUser = await db
+        await db
           .collection('users')
           .doc(authRes.user.uid)
-          .set({ name: this.name, email: this.email })
-
-        const userData = dbUser.data()
+          .set({ name: this.name, email: this.email.toLowerCase() })
 
         this.$store.dispatch('user/setUserData', {
-          id: dbUser.id,
+          id: authRes.user.uid,
           name: this.name,
-          email: this.email,
-          partnerId: userData.partnerId || '',
-          dishesDbPage: userData.dishesDbPage || 1
+          email: this.email.toLowerCase(),
+          partnerId: '',
+          dishesDbPage: 1
         })
 
-        this.$router.replace({ name: 'Home' })
+        this.$router.replace({ name: 'wyszukiwarka' })
       } catch (error) {
         this.errorMsg = 'Miał miejsce niespodziewany błąd!'
         if (error.message) {

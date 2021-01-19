@@ -12,43 +12,57 @@
           </v-list-item>
           <v-divider class="mx-2"></v-divider>
 
-          <v-list-item v-if="isLoggedIn" to="/">
+          <v-list-item v-if="userId" to="/wyszukiwarka">
             <v-list-item-icon>
               <v-icon>mdi-monitor</v-icon>
             </v-list-item-icon>
-            <v-list-item-content>Strona główna</v-list-item-content>
+            <v-list-item-content>Szukaj</v-list-item-content>
           </v-list-item>
-          <v-list-item v-if="isLoggedIn" to="/dopasowania">
+          <v-list-item v-if="userId" to="/dopasowania">
             <v-list-item-icon>
               <v-icon>mdi-book-open-outline</v-icon>
             </v-list-item-icon>
             <v-list-item-content>Dopasowania</v-list-item-content>
           </v-list-item>
+          <v-list-item v-if="userId" to="/dodawanie-partnera">
+            <v-list-item-icon>
+              <v-icon>mdi-plus</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>Dodaj partnera</v-list-item-content>
+          </v-list-item>
+          <v-list-item v-if="userId" to="/ulubione">
+            <v-list-item-icon>
+              <v-icon>mdi-star</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>Ulubione</v-list-item-content>
+          </v-list-item>
           <v-divider class="mx-2"></v-divider>
 
-          <v-list-item v-if="!isLoggedIn" to="/logowanie">
+          <v-list-item v-if="!userId" to="/logowanie">
             <v-list-item-icon>
               <v-icon>mdi-lock-open</v-icon>
             </v-list-item-icon>
             <v-list-item-content>Logowanie</v-list-item-content>
           </v-list-item>
-          <v-list-item v-if="!isLoggedIn" to="/rejestracja">
+          <v-list-item v-if="!userId" to="/rejestracja">
             <v-list-item-icon>
               <v-icon>mdi-shield-lock</v-icon>
             </v-list-item-icon>
             <v-list-item-content>Rejestracja</v-list-item-content>
           </v-list-item>
-          <v-list-item v-if="isLoggedIn" to="/profil">
+          <v-list-item v-if="userId" to="/profil">
             <v-list-item-icon>
               <v-icon>mdi-account-cog</v-icon>
             </v-list-item-icon>
             <v-list-item-content>Profil</v-list-item-content>
           </v-list-item>
-          <v-list-item v-if="isLoggedIn">
+          <v-list-item v-if="userId">
             <v-list-item-icon>
               <v-icon>mdi-lock</v-icon>
             </v-list-item-icon>
-            <v-list-item-content>Wyloguj</v-list-item-content>
+            <v-list-item-content v-on:click="logout"
+              >Wyloguj</v-list-item-content
+            >
           </v-list-item>
           <v-divider class="mx-2"></v-divider>
 
@@ -62,13 +76,8 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar app color="primary" dark :key="$route.fullPath">
-      <v-app-bar-nav-icon
-        @click.stop="sideNav = !sideNav"
-        class="hidden-md-and-up"
-      ></v-app-bar-nav-icon>
-      <v-btn to="/" class="hidden-sm-and-down" text rounded
-        >Strona Główna</v-btn
-      >
+      <v-app-bar-nav-icon @click.stop="sideNav = !sideNav"></v-app-bar-nav-icon>
+      <v-btn to="/" class="hidden-sm-and-down" text rounded>Oceń szame</v-btn>
       <v-spacer></v-spacer>
 
       <v-btn
@@ -87,8 +96,13 @@
         rounded
         >Rejestracja</v-btn
       >
-      <v-btn v-if="userId" to="/profil" class="hidden-sm-and-down" text rounded
-        >Profil</v-btn
+      <v-btn
+        v-if="userId"
+        to="/dodawanie-partnera"
+        class="hidden-sm-and-down"
+        text
+        rounded
+        >Dodaj partnera</v-btn
       >
       <v-btn
         v-if="userId"

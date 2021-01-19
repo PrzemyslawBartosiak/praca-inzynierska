@@ -7,71 +7,78 @@
         size="64"
       ></v-progress-circular>
     </v-overlay>
-    <v-container>
-      <v-card>
-        <v-container>
-          <h2>Szukanie partnera</h2>
-          <p>Wprowadź e-mail partnera aby umówić się z nim do restauracji</p>
-          <v-row>
-            <v-form ref="form" v-model="form">
-              <v-col class="d-inline-flex">
-                <v-text-field
-                  v-model="email"
-                  :rules="[rules.emailRules]"
-                  filled
-                  label="Adres e-mail"
-                  type="email"
-                >
-                </v-text-field>
-                <v-btn
-                  @click="searchUsersByEmail"
-                  :disabled="!form"
-                  large
-                  color="Primary"
-                  class="ml-2 mt-2"
-                  >Szukaj</v-btn
-                >
+    <v-container fill-height fluid>
+      <v-row align="center" justify="center">
+        <v-col cols="12" sm="8" md="6" lg="4">
+          <v-card>
+            <v-container>
+              <h2>Szukanie partnera</h2>
+              <p>
+                Wprowadź e-mail osoby, z którą chcesz zdecydować, co dobrego
+                dzisiaj zamówić.
+              </p>
+              <v-row>
+                <v-form ref="form" v-model="form">
+                  <v-col class="d-inline-flex">
+                    <v-text-field
+                      v-model="email"
+                      :rules="[rules.emailRules]"
+                      filled
+                      label="Adres e-mail"
+                      type="email"
+                    >
+                    </v-text-field>
+                    <v-btn
+                      @click="searchUsersByEmail"
+                      :disabled="!form"
+                      large
+                      color="Primary"
+                      class="ml-2 mt-2"
+                      >Szukaj</v-btn
+                    >
+                  </v-col>
+                </v-form>
+              </v-row>
+              <v-row v-if="foundUser">
+                <v-col class="d-inline-flex">
+                  <v-card>
+                    <v-card-text>
+                      <div>
+                        {{ foundUser.email }}
+                      </div>
+                      <p class="display-1 text-primary">
+                        {{ foundUser.name }}
+                      </p>
+                      <div class="text-primary">
+                        Aby dodać tego użytkownika jako partnera, kliknij
+                        poniższy przycisk.
+                      </div>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-btn
+                        color="primary"
+                        @click="addUserAsPartner(foundUser.id)"
+                      >
+                        Dodaj
+                      </v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-col>
+              </v-row>
+              <v-row v-if="message"> </v-row>
+              <v-col>
+                <h3>{{ message }}</h3>
               </v-col>
-            </v-form>
-          </v-row>
-          <v-row v-if="foundUser">
-            <v-col class="d-inline-flex">
-              <v-card>
-                <v-card-text>
-                  <div>
-                    {{ foundUser.email }}
-                  </div>
-                  <p class="display-1 text-primary">
-                    {{ foundUser.name }}
-                  </p>
-                  <div class="text-primary">
-                    Aby dodać tego użytkownika jako partnera, kliknij poniższy
-                    przycisk.
-                  </div>
-                </v-card-text>
-                <v-card-actions>
-                  <v-btn
-                    color="primary"
-                    @click="addUserAsPartner(foundUser.id)"
-                  >
-                    Dodaj
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-col>
-          </v-row>
-          <v-row v-if="message"> </v-row>
-          <v-col>
-            <h3>{{ message }}</h3>
-          </v-col>
-        </v-container>
-      </v-card>
+            </v-container>
+          </v-card>
+        </v-col>
+      </v-row>
       <v-snackbar
         :timeout="3000"
         :value="showToast"
         absolute
         bottom
-        right
+        center
         :color="toastColor"
       >
         {{ toastMessage }}

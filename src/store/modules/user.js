@@ -9,7 +9,8 @@ const state = {
   email: null,
   partnerId: null,
   dishesDbPage: 1,
-  matches: []
+  matches: [],
+  favouriteDishes: []
 }
 
 const mutations = {
@@ -27,6 +28,7 @@ const mutations = {
     state.partnerId = null
     state.dishesDbPage = 1
     state.matches = []
+    state.favouriteDishes = []
   },
   SET_PARTNER_ID: (state, payload) => {
     state.partnerId = payload
@@ -56,6 +58,15 @@ const actions = {
         .collection('users')
         .doc(context.state.id)
         .collection('matches')
+    )
+  }),
+  bindFavouritesRef: firestoreAction(context => {
+    return context.bindFirestoreRef(
+      'favouriteDishes',
+      db
+        .collection('users')
+        .doc(context.state.id)
+        .collection('favouriteDishes')
     )
   })
 }

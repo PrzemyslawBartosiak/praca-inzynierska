@@ -49,7 +49,7 @@
               color="info"
               :loading="isLoading"
               v-on:click="signInWithEmailAndPassword"
-              >Zaloguj</v-btn
+              >Zaloguj się</v-btn
             >
           </v-card-actions>
         </v-card>
@@ -79,6 +79,7 @@ export default {
   methods: {
     async signInWithEmailAndPassword() {
       this.isLoading = true
+
       try {
         const authRes = await firebase
           .auth()
@@ -92,6 +93,7 @@ export default {
           .get()
 
         const userData = dbUser.data()
+
         this.$store.dispatch('user/setUserData', {
           id: dbUser.id,
           name: userData.name,
@@ -100,7 +102,7 @@ export default {
           dishesDbPage: userData.dishesDbPage || 1
         })
 
-        this.$router.replace({ name: 'Home' })
+        this.$router.replace({ name: 'wyszukiwarka' })
       } catch (error) {
         this.errorMsg = 'Miał miejsce niespodziewany błąd!'
         if (error.message) {
