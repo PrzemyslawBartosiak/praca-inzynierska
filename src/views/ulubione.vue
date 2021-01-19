@@ -13,11 +13,12 @@
           <v-card-text>
             <v-row align="center" class="mx-0">
               <div class="grey--text ">
-                {{ match.likes }} <v-icon>mdi-thumb-up</v-icon>
+                {{ match.likes }} <v-icon class="pb-2">mdi-thumb-up</v-icon>
               </div>
 
               <div class="grey--text ml-4">
-                {{ match.dislikes }} <v-icon>mdi-thumb-down</v-icon>
+                {{ match.dislikes }}
+                <v-icon class="pb-1">mdi-thumb-down</v-icon>
               </div>
             </v-row>
 
@@ -28,9 +29,19 @@
             <div>
               {{ match.skladniki }}
             </div>
+            <v-divider class="mt-3"></v-divider>
           </v-card-text>
 
-          <v-divider class="mx-4"></v-divider>
+          <v-row class="mb-2">
+            <v-spacer></v-spacer
+            ><v-btn
+              color="success"
+              to="/rezerwacjaDania"
+              class="mt-3 mx-6"
+              small
+              >Zarezerwuj danie</v-btn
+            >
+          </v-row>
         </v-card>
       </v-col>
     </v-row>

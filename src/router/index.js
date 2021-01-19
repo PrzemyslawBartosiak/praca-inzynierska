@@ -74,6 +74,24 @@ const routes = [
     beforeEnter: guard,
     component: () =>
       import(/* webpackChunkName: "ulubione" */ '../views/ulubione.vue')
+  },
+  {
+    path: '/rezerwacjaDania',
+    name: 'rezerwacjaDania',
+    beforeEnter: guard,
+    component: () =>
+      import(
+        /* webpackChunkName: "rezerwacjaDania" */ '../views/rezerwacjaDania.vue'
+      )
+  },
+  {
+    path: '/rezerwacjaDaniaPotwierdzenie',
+    name: 'rezerwacjaDaniaPotwierdzenie',
+    beforeEnter: guard,
+    component: () =>
+      import(
+        /* webpackChunkName: "rezerwacjaDaniaPotwierdzenie" */ '../views/rezerwacjaDaniaPotwierdzenie.vue'
+      )
   }
 ]
 

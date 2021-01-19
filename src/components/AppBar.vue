@@ -122,8 +122,7 @@
 import firebase from 'firebase'
 export default {
   data: () => ({
-    sideNav: false,
-    isLoggedIn: false
+    sideNav: false
   }),
 
   methods: {
@@ -135,7 +134,6 @@ export default {
       await firebase.auth().signOut()
       this.$store.dispatch('user/clearUserData')
       this.$router.replace('/')
-      this.isLoggedIn = false
     }
   },
   computed: {

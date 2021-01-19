@@ -16,11 +16,12 @@
       <v-card-text>
         <v-row align="center" class="mx-0">
           <div class="grey--text ">
-            {{ currentDish.likes }} <v-icon>mdi-thumb-up</v-icon>
+            {{ currentDish.likes }} <v-icon class="pb-2">mdi-thumb-up</v-icon>
           </div>
 
           <div class="grey--text ml-4">
-            {{ currentDish.dislikes }} <v-icon>mdi-thumb-down</v-icon>
+            {{ currentDish.dislikes }}
+            <v-icon class="pb-1">mdi-thumb-down</v-icon>
           </div>
         </v-row>
 

@@ -13,11 +13,12 @@
           <v-card-text>
             <v-row align="center" class="mx-0">
               <div class="grey--text ">
-                {{ match.likes }} <v-icon>mdi-thumb-up</v-icon>
+                {{ match.likes }} <v-icon class="pb-2">mdi-thumb-up</v-icon>
               </div>
 
               <div class="grey--text ml-4">
-                {{ match.dislikes }} <v-icon>mdi-thumb-down</v-icon>
+                {{ match.dislikes }}
+                <v-icon class="pb-1">mdi-thumb-down</v-icon>
               </div>
             </v-row>
 
