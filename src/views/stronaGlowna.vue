@@ -5,11 +5,9 @@
         <v-row>
           <v-spacer></v-spacer>
 
-          <p
-            class="font-weight-light text-lg-h6 text-md-subtitle-1 text-sm-body-1 text-body-2 mt-2"
-          >
+          <h2>
             Nie masz pomysłu jakie jedzenie zamówić?
-          </p>
+          </h2>
           <v-spacer></v-spacer>
         </v-row>
         <v-row>

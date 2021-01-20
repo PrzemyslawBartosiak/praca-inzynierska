@@ -31,7 +31,16 @@
             </div>
           </v-card-text>
 
-          <v-divider class="mx-4"></v-divider>
+          <v-row class="mb-2">
+            <v-spacer></v-spacer
+            ><v-btn
+              color="success"
+              to="/rezerwacjaDania"
+              class="mt-3 mx-6"
+              small
+              >Zarezerwuj danie</v-btn
+            >
+          </v-row>
         </v-card>
       </v-col>
     </v-row>
@@ -50,7 +59,7 @@ export default {
   },
   computed: {
     matches() {
-      return this.$store.state.user.favouriteDishes
+      return this.$store.state.user.matches
     }
   }
 }

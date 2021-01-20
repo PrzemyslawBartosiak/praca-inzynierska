@@ -26,6 +26,7 @@
                 label="Imię"
                 type="text"
                 v-model="name"
+                :rules="nameRules"
                 prepend-icon="mdi-mail"
                 required
               ></v-text-field>
@@ -113,6 +114,7 @@ export default {
     email: '',
     userPassword: '',
     errorMsg: '',
+    nameRules: [value => !!value || 'To pole jest wymagane'],
     agreeToTermsRules: [
       value => !!value || 'Musisz zgodzić się na warunki użytkowania.'
     ],

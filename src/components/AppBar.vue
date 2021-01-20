@@ -77,7 +77,9 @@
     </v-navigation-drawer>
     <v-app-bar app color="primary" dark :key="$route.fullPath">
       <v-app-bar-nav-icon @click.stop="sideNav = !sideNav"></v-app-bar-nav-icon>
-      <v-btn to="/" class="hidden-sm-and-down" text rounded>Oceń szame</v-btn>
+      <v-btn to="/wyszukiwarka" class="hidden-sm-and-down" text rounded
+        >Oceń szame</v-btn
+      >
       <v-spacer></v-spacer>
 
       <v-btn
