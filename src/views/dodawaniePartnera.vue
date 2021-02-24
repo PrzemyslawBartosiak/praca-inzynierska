@@ -12,17 +12,17 @@
         <v-col cols="12" sm="8" md="6" lg="4">
           <v-card>
             <v-container>
-              <h2>Szukanie partnera</h2>
+              <h2>Dodawanie partnera</h2>
               <p>
-                Wprowadź e-mail osoby, z którą chcesz zdecydować, co dobrego
-                dzisiaj zamówić.
+                Wprowadź e-mail osoby, z którą chcesz wspólnie zdecydować, co
+                dobrego dzisiaj zamówić.
               </p>
               <v-row>
                 <v-form ref="form" v-model="form">
                   <v-col class="d-inline-flex">
                     <v-text-field
                       v-model="email"
-                      :rules="[rules.emailRules]"
+                      :rules="emailRules"
                       filled
                       label="Adres e-mail"
                       type="email"
@@ -100,23 +100,21 @@ export default {
     email: '',
     foundUser: null,
     message: '',
-    rules: {
-      emailRules: [
-        value => !!value || 'E-mail jest wymagany.',
-        value =>
-          value.indexOf('@') !== 0 ||
-          'E-mail powinien posiadać nazwę przed znakiem @.',
-        value => value.includes('@') || 'E-mail powinien zawierać symbol @.',
-        value =>
-          value.indexOf('.') - value.indexOf('@') > 1 ||
-          'E-mail powinień posiadać poprawną domenę.',
-        value =>
-          value.includes('.') || 'Email powinien zawierać symbol kropki.',
-        value =>
-          value.indexOf('.') <= value.length - 3 ||
-          'E-mail powinień posiadać poprawną domenę.'
-      ]
-    }
+
+    emailRules: [
+      value => !!value || 'E-mail jest wymagany.',
+      value =>
+        value.indexOf('@') !== 0 ||
+        'E-mail powinien posiadać nazwę przed znakiem @.',
+      value => value.includes('@') || 'E-mail powinien zawierać symbol @.',
+      value =>
+        value.indexOf('.') - value.indexOf('@') > 1 ||
+        'E-mail powinień posiadać poprawną domenę.',
+      value => value.includes('.') || 'Email powinien zawierać symbol kropki.',
+      value =>
+        value.indexOf('.') <= value.length - 3 ||
+        'E-mail powinień posiadać poprawną domenę.'
+    ]
   }),
 
   methods: {

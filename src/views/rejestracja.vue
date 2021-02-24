@@ -27,7 +27,7 @@
                 type="text"
                 v-model="name"
                 :rules="nameRules"
-                prepend-icon="mdi-mail"
+                prepend-icon="mdi-account"
                 required
               ></v-text-field>
 
@@ -76,6 +76,8 @@
                 {{ errorMsg }}
               </v-alert>
               <v-card-actions class="mt-2">
+                <v-btn color="error" @click="resetForm">Wyczyść</v-btn>
+                <v-spacer></v-spacer>
                 <v-btn
                   color="primary"
                   class="mr-4"
@@ -84,12 +86,6 @@
                   @click="signUpWithEmailAndPassword"
                   >Zatwierdź</v-btn
                 >
-                <v-spacer></v-spacer>
-                <v-btn color="success" class="mr-4" @click="validateForm"
-                  >Sprawdź formularz</v-btn
-                >
-
-                <v-btn color="error" @click="resetForm">Wyczyść</v-btn>
               </v-card-actions>
             </v-form>
           </v-card-text>
@@ -103,21 +99,22 @@
 <script>
 import firebase from 'firebase'
 import { db } from '../main'
-// import VueSweetalert2 from 'vue-sweetalert2'
+
 export default {
   data: () => ({
     agreeToTerms: false,
     isLoading: false,
     form: false,
     browsers: ['Chrome', 'Firefox', 'Safari', 'Edge', 'Brave'],
-    name: '',
-    email: '',
-    userPassword: '',
+
     errorMsg: '',
+
     nameRules: [value => !!value || 'To pole jest wymagane'],
     agreeToTermsRules: [
       value => !!value || 'Musisz zgodzić się na warunki użytkowania.'
     ],
+
+    email: '',
     emailRules: [
       value => !!value || 'E-mail jest wymagany.',
       value =>
@@ -133,6 +130,7 @@ export default {
         'E-mail powinień posiadać poprawną domenę.'
     ],
 
+    userPassword: '',
     passwordRules: [
       value => !!value || 'Hasło jest wymagane.',
       value =>
@@ -144,6 +142,7 @@ export default {
         /(?=.*[A-Z])/.test(value) || 'Hasło musi zawierać jedną dużą literę.',
       value => /(?=.*\d)/.test(value) || 'Hasło musi zawierać jedną liczbę'
     ],
+
     userPasswordRepeat: '',
     passwordRepeatRules: [
       value => !!value || 'Musisz powtórzyć hasło',
@@ -166,16 +165,6 @@ export default {
       this.$refs.signUpForm.validate()
     },
 
-    showAlert() {
-      this.$swal({
-        icon: 'success',
-        title:
-          'Rejestracja dokonana pomyślnie! Możesz zacząć korzystać z serwisu.',
-        showConfirmButton: true,
-        timer: 4000
-      })
-    },
-
     async signUpWithEmailAndPassword() {
       this.isLoading = true
       try {
@@ -195,8 +184,7 @@ export default {
           id: authRes.user.uid,
           name: this.name,
           email: this.email.toLowerCase(),
-          partnerId: '',
-          dishesDbPage: 1
+          partnerId: ''
         })
 
         this.$router.replace({ name: 'wyszukiwarka' })

@@ -5,7 +5,7 @@
         <v-row>
           <v-spacer></v-spacer>
 
-          <h2>
+          <h2 align="center">
             Nie masz pomysłu jakie jedzenie zamówić?
           </h2>
           <v-spacer></v-spacer>

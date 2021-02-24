@@ -5,7 +5,7 @@
         <v-list-item-group>
           <v-list-item>
             <!-- <v-img src="./assets/aocIcon-32x32.png"></v-img> -->
-            <v-list-item-content>Oceń szame</v-list-item-content>
+            <v-list-item-content>WybierzSzame</v-list-item-content>
             <v-btn icon @click.stop="sideNav = !sideNav">
               <v-icon>mdi-chevron-left</v-icon>
             </v-btn>
@@ -78,7 +78,7 @@
     <v-app-bar app color="primary" dark :key="$route.fullPath">
       <v-app-bar-nav-icon @click.stop="sideNav = !sideNav"></v-app-bar-nav-icon>
       <v-btn to="/wyszukiwarka" class="hidden-sm-and-down" text rounded
-        >Oceń szame</v-btn
+        >WybierzSzame</v-btn
       >
       <v-spacer></v-spacer>
 

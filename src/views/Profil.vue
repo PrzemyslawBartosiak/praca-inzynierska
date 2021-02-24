@@ -152,9 +152,7 @@ export default {
       user
         .updateEmail(newEmail)
         .then(function() {})
-        .catch(function(error) {
-          // An error happened.
-        })
+        .catch(function(error) {})
     }
   },
 

@@ -144,7 +144,6 @@ export default {
         .get()
         .then(querySnapshot => {
           querySnapshot.forEach(doc => {
-            // doc.data() is never undefined for query doc snapshots
             this.dishes.push(doc.data())
           })
         })
@@ -193,6 +192,14 @@ export default {
     async favourite() {
       let userRef = db.collection('users').doc(this.authUserId)
 
+      let favouriteDishRef = userRef
+        .collection('favouriteDishes')
+        .where('nazwa', '==', this.currentDish.nazwa)
+      await favouriteDishRef.get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          doc.ref.delete()
+        })
+      })
       await userRef.collection('favouriteDishes').add({ ...this.currentDish })
       this.toastColor = 'success'
       this.toastMessage = 'Dodaliśmy to tanie do twoich ulubionych!'

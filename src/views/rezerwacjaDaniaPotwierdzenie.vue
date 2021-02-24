@@ -9,17 +9,17 @@
           </v-card-title>
           <!-- <v-btn v-on:click="showAlert">Test</v-btn> -->
           <v-card-text class="mt-4">
-            <h2>Dziękujemy za złożenie rezerwacji na naszym profilu!</h2>
+            <h2>Dziękujemy za złożenie rezerwacji na naszym portalu!</h2>
           </v-card-text>
           <v-card-text class="pt-0"
-            >Restauracja powiadomi Cię za pomocą wiadomości sms p przyjęciu lub
-            odrzuceniu twojego zamówienia.</v-card-text
+            >Restauracja powiadomi Cię za pomocą wiadomości sms o przyjęciu
+            twojego zamówienia.</v-card-text
           >
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="info" to="/wyszukiwarka" class="mx-6"
               >Przeglądaj dalej</v-btn
-            ><v-spacer></v-spacer>
+            >
           </v-card-actions>
         </v-card>
       </v-col>

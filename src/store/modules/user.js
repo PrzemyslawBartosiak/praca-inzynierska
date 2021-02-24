@@ -8,7 +8,6 @@ const state = {
   name: null,
   email: null,
   partnerId: null,
-  dishesDbPage: 1,
   matches: [],
   favouriteDishes: []
 }

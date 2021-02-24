@@ -1,10 +1,17 @@
 <template>
   <v-container>
     <v-row>
-      <v-col md="4" v-for="match in matches" :key="match.id">
+      <v-col
+        cols="12"
+        sm="6"
+        md="6"
+        lg="4"
+        v-for="match in matches"
+        :key="match.id"
+      >
         <v-card max-width="500" class="d-flex align-content-start flex-wrap">
           <v-img
-            max-height="400"
+            height="450"
             :src="require(`../assets/${match.adres_zdjecia}`)"
           ></v-img>
 
