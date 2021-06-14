@@ -4,7 +4,7 @@
       <v-card flat tile class="primary white--text text-center">
         <v-card-text>
           <strong>
-            Serwis ocenszame wykonany przez Przemysława Bartosiaka
+            Serwis WybierzSzame wykonany przez Przemysława Bartosiaka
           </strong>
         </v-card-text>
       </v-card>

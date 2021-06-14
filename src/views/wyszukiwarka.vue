@@ -202,7 +202,7 @@ export default {
       })
       await userRef.collection('favouriteDishes').add({ ...this.currentDish })
       this.toastColor = 'success'
-      this.toastMessage = 'Dodaliśmy to tanie do twoich ulubionych!'
+      this.toastMessage = 'Dodaliśmy to danie do swojego schowka!'
       this.showToast = true
       this.hasFavourited = true
     },
